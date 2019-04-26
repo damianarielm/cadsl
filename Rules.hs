@@ -31,7 +31,7 @@ makeTransition f (conditions@((c,_,_):_):rules) (x,y) m
   | otherwise          = makeTransition f rules (x,y) m
 
 tryConditions :: Frontier -> [Rule] -> [[Rule]] -> Transition
-tryConditions _ [] _ (x,y) m = m !!! (x,y)
+tryConditions f [] rules (x,y) m = makeTransition f rules (x,y) m
 tryConditions _ ((_,[],c'):_) _ _ _ = c'
 tryConditions f ((z,condition:conditions,c'):moreConditions) rules (x,y) m =
   case condition of
