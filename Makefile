@@ -1,3 +1,3 @@
 all:
-	happy Parser.y
-	ghc Main.hs -O2
+	stack setup
+	stack build
